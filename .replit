@@ -8,8 +8,8 @@ channel = "stable-24_05"
 NEXT_TELEMETRY_DISABLED = "1"
 
 [deployment]
-run = ["sh", "-c", "npm run build && npm run start"]
-build = ["sh", "-c", "npm install"]
+run = ["sh", "-c", "node .next/standalone/server.js"]
+build = ["sh", "-c", "npm install && npm run build && cp -r public .next/standalone/ && cp -r .next/static .next/standalone/.next/"]
 
 [[ports]]
 localPort = 3000
